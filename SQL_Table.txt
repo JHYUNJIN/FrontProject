@@ -1,0 +1,61 @@
+drop table tbl_careers;
+drop table test;
+drop table tbl_users;
+drop table tbl_activities;
+
+# 회원 테이블
+CREATE TABLE tbl_users(
+   email varchar(30) primary key,
+    pw varchar(200) not null,
+    question int not null check (question IN(1, 2, 3)),
+    answer varchar(200) not null,
+    created_date datetime default now() not null,
+    updated_date datetime default now() not null,
+    profile_url varchar(200) default '/profile.jpg',
+    cover_url varchar(200) default '/cover.jpg'
+);
+
+#경력 테이블
+create table tbl_careers(
+   id int auto_increment primary key,
+    email varchar(30) not null references tbl_users (email),
+    company varchar(200) not null,
+    position varchar(200) not null ,
+    start_date date not null,
+    end_date date 
+);
+
+
+# 활동게시판 테이블
+create table tbl_activities(
+   id int auto_increment primary key,
+    title varchar(200) not null,
+    content text not null,
+    writer_email varchar(30) references tbl_users (email),
+    created_date datetime default now() not null,
+    updated_date datetime default now() not null,
+    activity_view int not null
+);
+
+
+# 활동게시물 이미지 테이블
+create table tbl_activity_img(
+   activity_id int references tbl_activities(id) ,
+    img_url varchar(500),
+    constraint tbl_activity_img_pk primary key (activity_id , img_url)
+);
+# 활동게시물 좋아요 테이블
+create table tbl_activity_like(
+   activity_id int references tbl_activities(id),
+    email varchar(30) references tbl_users(email),
+    constraint tbl_activity_like_pk primary key (activity_id, email)
+);
+# 댓글테이블
+create table tbl_comments(
+   id int auto_increment primary key,
+    content text not null,
+    activity_id int references tbl_activities (id),
+    created_date datetime default now(),
+    updated_date datetime default now(),
+    writer_email  varchar(30) references tbl_users (email)
+);

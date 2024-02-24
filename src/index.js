@@ -6,9 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-  </React.StrictMode>
+   // </React.StrictMode> // 엄격 검사 모드, 최초로 그린 후 다시 지웠다가 그리는 과정을 실행하여 두번 그렸을 때도 이상이 없는지 확인하기 위한 용도
+
 );
 
 // If you want to start measuring performance in your app, pass a function

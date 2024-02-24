@@ -1,13 +1,103 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;400;700&display=swap');
+
+:root {
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg:1.125rem;
+  --font-xl: 1.25rem;
+
+
+  --gray-000: 228, 100%, 100%; 
+  --gray-005: 228, 100%, 98%;  
+  --gray-010: 226, 35%, 93%;   
+  --gray-015: 228, 24%, 88%;   
+  --gray-020: 227, 17%, 77%;   
+  --gray-030: 229, 13%, 67%;   
+  --gray-040: 227, 11%, 57%;   
+  --gray-050: 227, 9%, 48%;    
+  --gray-060: 226, 11%, 39%;   
+  --gray-070: 224, 13%, 30%;   
+  --gray-080: 228, 14%, 21%;   
+  --gray-085: 228, 16%, 13%;   
+  --gray-090: 231, 16%, 8%;    
+  --gray-095: 225, 18%, 4%;    
+  --gray-100: 225, 0%, 0%;   
+
+  --ui-color-primary: 171, 73.1%, 50.4%;
+  
+  /* 기준은 라이트 모드 */
+  /* 배경색상, 가장 기본이 100 부터 시작 줄어든다 */
+  --ui-color-background-000: var(--gray-080);
+  --ui-color-background-010: var(--gray-070);
+  --ui-color-background-020: var(--gray-060);
+  --ui-color-background-030: var(--gray-050);
+  --ui-color-background-040: var(--gray-040);
+  --ui-color-background-050: var(--gray-030);
+  --ui-color-background-060: var(--gray-020);
+  --ui-color-background-070: var(--gray-015);
+  --ui-color-background-080: var(--gray-010);
+  --ui-color-background-090: var(--gray-005);
+  --ui-color-background-100: var(--gray-000);
+
+  /* 전경(글자색, 테두리색),  100 부터 시작, 줄어든다*/
+  --ui-color-foreground-000: var(--gray-020);
+  --ui-color-foreground-010: var(--gray-030);
+  --ui-color-foreground-020: var(--gray-040);
+  --ui-color-foreground-030: var(--gray-050);
+  --ui-color-foreground-040: var(--gray-060);
+  --ui-color-foreground-050: var(--gray-070);
+  --ui-color-foreground-060: var(--gray-080);
+  --ui-color-foreground-070: var(--gray-085);
+  --ui-color-foreground-080: var(--gray-090);
+  --ui-color-foreground-090: var(--gray-095);
+  --ui-color-foreground-100: var(--gray-100);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root.dark{
+    /* 배경색상, 가장 기본이 100 부터 시작 줄어든다 */
+    --ui-color-background-000: var(--gray-020);
+    --ui-color-background-010: var(--gray-030);
+    --ui-color-background-020: var(--gray-040);
+    --ui-color-background-030: var(--gray-050);
+    --ui-color-background-040: var(--gray-060);
+    --ui-color-background-050: var(--gray-070);
+    --ui-color-background-060: var(--gray-080);
+    --ui-color-background-070: var(--gray-085);
+    --ui-color-background-080: var(--gray-090);
+    --ui-color-background-090: var(--gray-095);
+    --ui-color-background-100: var(--gray-100);
+  
+    /* 전경(글자색, 테두리색),  100 부터 시작, 줄어든다*/
+    --ui-color-foreground-000: var(--gray-080);
+    --ui-color-foreground-010: var(--gray-070);
+    --ui-color-foreground-020: var(--gray-060);
+    --ui-color-foreground-030: var(--gray-050);
+    --ui-color-foreground-040: var(--gray-040);
+    --ui-color-foreground-050: var(--gray-030);
+    --ui-color-foreground-060: var(--gray-020);
+    --ui-color-foreground-070: var(--gray-015);
+    --ui-color-foreground-080: var(--gray-010);
+    --ui-color-foreground-090: var(--gray-005);
+    --ui-color-foreground-100: var(--gray-000);
 }
+
+
+body{
+  margin: 0;
+  background-color: hsl(var(--ui-color-background-100));
+  color: hsl(var(--ui-color-foreground-100));
+}
+
+*{
+  box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
