@@ -1,0 +1,96 @@
+.gitignore : 깃허브에 올라가면 안되는 파일들 설정하는 공간
+package-lock.json : 프로젝트 사용 설명서
+package.josn : 프로젝트에 대한 부가적인 설명
+
+이름 : 배상엽
+메일 : cidea100@naver.com
+  영상링크는 카톡방으로 업로드
+
+React.js
+  V(view)에 집중하여 개발할 수 있도록 고안된 라이브러리
+  개발을 주도하는 회사(페이스북)
+  핵심개념 : 화면단에서 자주 쓰이거나 반복이 되는 부분을 
+  쉽게 다루자 
+
+컴포넌트(Component)
+  UI상의 특정 부분(개발자가 결정)을 일컫는 말
+  리액트 숙련도의 기준은 UI에서 컴포넌트를 어떻게 분리 할 것인가?
+    1. 반복이 된다(여러페이지에 사용이 된다)
+      레이아웃
+    2. 데이터가 변경이 된다
+
+    3. 최소한의 기능을 가지고 있다
+      버튼
+  
+렌더링(Rendering)
+  화면에 UI를 사용자에게 보여주는 행위(그려주는 행위)
+
+  초기 렌더링(Initial rendering)
+    빈 도화지에 최초로 UI 그려지는 행위
+
+  리렌더링(re-rendering)
+    이미 그려져있는 UI가 다시 그려지는 행위
+
+
+node.js 다운로드 
+  nodejs 설치 여부 확인하기 
+  mac --> terminal 
+  window --> cmd 
+node.js란?
+  Node.js®는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임입니다.
+  Node.js는 크롬 V8 엔진을 기반으로 만들어져있는 자바스크립트 실행기
+  nodejs를 설치할 때 같이 설치가 되는 
+  npm(파일 관리자 프로그램(여러가지 라이브러리를 다운로드받을 수 있는 사이트))
+    을 사용하기 위해서 nodejs를 설치한다
+  yarn(파일관리자 프로그램)
+
+리액트 라이브러리 
+
+리액트 프로젝트 폴더 만들기
+  주소를 파악해야한다
+  내가 만들고자 하는 위치까지 이동(cd 폴더/폴더)
+  이동이 다 되었으면 
+    npx create-react-app 프로젝트이름
+  
+  프로젝트이름을 지을 때는 띄어쓰기가 있거나 대문자가 있으면 안된다(나중에 만들고 바꿔주면 됨)
+
+리액트 프로젝트 실행시키기 
+  폴더 경로를 내가 실행시키고자 하는 리액트 프로젝트까지 이동
+    npm start
+  
+보일러플레이트(기본 리액트 프로젝트 구조)
+  node_modules 폴더
+    리액트 프로젝트를 실행시키는 데에 필요한 여러가지 라이브러리(코드모음)가 들어있는 폴더
+    만약 node_modules 가 없으면 컴퓨터가 코드 해석 못함
+
+  public 폴더
+    이미지, 영상 등 리소스를 모아놓는 폴더 
+    favicon.ico
+      탭부분에 표현되는 아이콘
+    index.html 
+      body 태그 안쪽에 오로지 
+      id가 root인 비어있는 div 하나만 갖고 있는 html 파일
+      html파일은 index.html 파일 하나만 있어야 한다
+        <div id="root"></div> 
+      안쪽에 내용물은 누가 넣어주는 것인가? index.js가
+
+  src 폴더
+    index.js 
+      index.html의 root div의 자식으로 요소를 추가해준다
+
+    App.test.js 
+      App.js에 만들어놓은 코드가 버그가 없는지 확인하는 파일
+      초기단계에는 필요없으니 삭제(테스트할때 다시만들면 됨)
+    
+  .gitignore 파일 
+  package-lock.json 파일 
+  package.json 파일
+  README.md 파일
+
+
+js 파일은 코드를 자바스크립트로 해석하는 파일
+js 파일 안에있는 <div></div> 이런 코드는 
+마치 html으로 해석하는 것처럼 보이게 착시를 일으킬
+뿐 엄연히 js 코드이다
+js 안에서 사용하는 태그형태의 코드를 
+jsx(javascript extensible) 라고 한다. 

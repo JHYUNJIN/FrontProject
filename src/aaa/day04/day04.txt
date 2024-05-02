@@ -1,0 +1,207 @@
+리액트에서 라우팅(경로에 따라서 알맞은 페이지를 보여주는 방법)
+  1. react-router-dom 라이브러리
+  2. next.js 프레임워크를 사용하는 방법
+
+react 
+  SPA + CSR(Cilent Side Rendering)
+  html파일은 하나밖에 없기 때문에 페이지 별 서로 다른
+  meta 태그를 설정할 수 없고,
+  검색 했을 때 노출이 쉽게 되지 않는 단점이 있다(SEO에 불리하다.)
+  cf) SEO란 Search Engine Optimization 의 약자로,
+  검색 엔진 최적화이다. SEO의 의미로는,
+  검색자 (검색 유저)의 의도를 파악하고 
+  이에 맞춰 웹 페이지의 콘텐츠를 제작하여,
+  이 페이지가 검색 결과 페이지에서 잘 노출 될 수 있도록 
+  웹페이지의 태그(<meta>태그가 대표적이다.)와 링크 구조를 개선하여
+  오가닉트래픽(Organic Traffic)을 늘리는 방법론이다.
+
+next.js 
+  리액트를 활용하여 만든 프레임워크
+  라우팅까지 자동으로 될 수 있도록 지원해준다.
+  기존 react + 라우팅기능 + SSR(Server Side Rendering)
+  SEO에 최적화가 가능, 타우팅도 쉽게 다룰 수 있다.
+
+app 폴더 내의 layout.js가 그려지고
+비어있는 body태그 안에 page.js에서 export default 되고 있는 컴포넌트가 그려진다.
+
+app 폴더 내에 다른 폴더를 만들고
+그 폴더 안에 page.js를 만들면 자동으로 라우팅 처리된다.
+http://localhost:3000/를
+입력하면
+app/폴더(dashboard)/page.js파일에서 export default 되고 있는 컴포넌트가 layout.js 파일안의
+body태그에 적용된다.
+
+
+1. 라이브러리 JHJ를 설치하고 싶다면
+npm
+  npm install JHJ
+
+yarn
+  yarn add bsy
+
+2. 라이브러리 JHJ를 삭제하고 싶다면
+npm
+  npm uninstall JHJ
+
+yarn
+  yarn remove JHJ
+
+3. node-modules 폴더가 없어서 설치하고 싶다면
+npm
+  npm install
+    --> pakage.json에 dependencies를 보고 거기있는 라이브러리를 모두 설치
+
+yarn
+  yarn install
+    --> pakage.json에 dependencies를 보고 거기있는 라이브러리를 모두 설치
+
+yarn은 npm을 통해서 설치해야한다.
+
+npm install yarn --> 로컬영역에서만 설치
+npm install --global yarn --> 전체영역에서 yarn을 사용하고 싶을 때 설치명령어
+
+next.js 기본 프로젝트 구조 설치
+npm
+  npx-create-next-app
+    npm 5.2버전부터 npx를 제공,
+    기존의 방식은 npm을 통해 사용할 모듈을 지역공간에 설치를 해야만 실행시킬수있었지만,
+    모듈을 설치하지 않고도 매번 최신 버전 파일만 불러와서 실행시키고,
+    그 파일은 사라지는 방식으로 사용할 수 있도록 npx가 등장했다.
+
+yarn
+  yarn create next-app
+
+
+next.js 프로젝트 서버 실행하는 코드
+npm
+  npm run dev
+
+yarn
+  yarn run dev 또는 yarn dev
+
+
+
+test 리액트 프로젝트
+  간단한 구조로 연습
+  npm으로 설치되어있음
+
+dashboard 넥스트 프로젝트
+  적용,
+  yarn으로 설치되어있음
+
+
+포트번호
+  실행되고 있는 컴퓨터의 프로그램을 식별하기 위해 사용하는 번호
+  localhost = 127.0.0.1
+  localhost:3000 --> 127.0.0.1:3000 --> 컴퓨터주소:3000
+
+  카카오톡, zoom, 필기프로그램, vscode, ...
+  8080 포트에서 data base 프로그램
+
+  기본적으로 react 프로젝트나 next.js프로젝트는 3000번에서 동작하도록 설정되어있음
+  하나의 포트에서는 하나의 프로그램만 작동한다.
+  그러므로 3000번이 아닌 3001번이나 다른 포트번호를 주면 둘 이상의 프로그램을 
+  사용할 수 있다.
+
+  react를 기본 포트인 3000번이 아닌 다른 포트에서 동작시키기 
+  package.json에서
+  scripts 부분에 
+  mac, linux 
+    "start" : "export PORT=포트번호 && react-scripts start"
+  window 
+    "start" : "set PORT=포트번호 && react-scripts start"
+
+  --> npm start를 통해 react 프로젝트를 실행하면
+  설정된 포트에서 실행된다.
+
+리액트 프로젝트
+  npm start
+  yarn start
+  로 실행
+
+넥스트 프로젝트
+  yarn dev
+  npm run dev
+
+
+
+css 문법
+선택자
+div:hover{
+  color:red;
+}
+
+//가상 클래스 -->
+:root{
+  //html태그에 적용하고 싶은
+  // 대상이 있을 때 사용
+}
+
+css에서 변수
+글자색 
+a = #000000
+b = #ffffff
+h1{
+  color:a;
+}
+h1{
+  color:a; //검정색
+}
+.detail{
+  color:a;
+}
+.content{
+  background-color:b //흰색
+}
+
+css에서 변수 만들기
+  --변수이름 : 값;
+  --변수이름 : 값;
+  --a : #000000;
+  --b : 0,0,0;
+  --c : 3px solid black;
+  --d : 정현진;
+
+css에서 변수 사용하기
+  var(--변수이름)
+
+div{
+  color : var(--a);
+  border : var(--c);
+  display : var(--d);
+
+  background-color : rgb(0,0,0);
+  background-color : rgb(var(--b))
+  background-color : rgba(var(--b),0.5)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+폴더가 경로다!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

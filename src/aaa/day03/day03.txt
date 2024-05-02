@@ -1,0 +1,104 @@
+emotion
+  css를 js로 만들 수 있도록 도와주는 라이브러리
+
+  styled 함수
+  
+  import styled from "@emotion/styled";
+
+이전 방식
+  div 태그를 만들고, 클래스 이름이나 id값을 설정한 후
+  css 파일에 
+  선택자 {
+    적용시킬 디자인;
+  }
+  으로 작성을 했음
+  --> 클래스 이름 및 아이디 이름 설정의 어려움
+  --> 선택자를 똑같게 했을 경우 의도치 않은 스타일이 적용
+
+emtion styled 방식
+  css가 적용된 유일한 div 태그를 만들면 되지 않을까 ?
+
+  let Abc
+  const Abc = styled.div`css 문법;`;
+  const Abc = styled.div`display:flex;`;
+  const Abc = styled.div('display:flex;');
+              <div styled="display:flex;"></div>
+  <Abc/>
+
+    
+  .js 파일에서
+  let a = <p>안뇽</p>; --> jsx
+  <a><a/>
+
+  function banana(a, b, c, d){
+   .....;
+   a[0]; // 'abc'
+   a[1]; // '5+1'
+   a[2]; // 'dd'
+}
+
+banana`abc${13-7}5+1${true}dd${10 > 1}`;
+banana`abc${6}5+1${true}dd${true}`;
+banana(['abc', '5+1', 'dd'], 13-7, true, 10>1)
+
+css 가상 클래스
+:hover
+:
+
+
+css 가상요소
+::before
+::after
+
+
+페이지 이동
+  애초에 React는 Single Page Application
+  (html 파일이 하나밖에 없기 때문에)이기 때문에
+  페이지 이동이라는 개념 자체가 존재하지 않는다.
+  따라서 주소가 안바뀌고, 뒤로가기 앞으로 가기가 불가능하다.
+
+  React-Router-Dom
+    페이지 이동효과를 주기 위해 자주 사용되는 라이브러리이다.
+    페이지 이동은 아니고 단순히 주소에 글자를 추가해주고
+    뒤로가기(history)에 이전 기록을 추가해주는 방법으로
+    사용자 입장에서 페이지 이동이 된 것 처럼
+    효과를 낼 수 있다.
+
+  html의 a태그는 절대 리액트에서 사용하지 않는다.
+  a태그의 동작 원리 자체는 
+  href 속성에 있는 주소로 이동을 시키는 행위이기 때문에
+  페이지가 하나밖에 없는 리액트에서는 제대로 동작하지 않는다.
+
+  Link 컴포넌트 (react-router-dom)
+  <Link to='경로'>소개로 이동</Link>
+  ex)
+  <Link to='/about'>소개로 이동</Link>
+
+  만약 사용자가
+  "소개로 이동"을 클릭하면 브라우저의 주소에
+  /about을 붙여준다.
+  그리고 기존에 보여지던 화면은 지우고 history에 기록을 저장한 후
+  화면에는 다른 컴포넌트가 렌더링이 된다.
+
+가장 최상위 컴포넌트(보통은 index.js안쪽이나 app.js)에
+  <BrowserRouuter>
+    <Routes>
+      <Route path='/' element{<컴포넌트/>}/>
+      <Route path='/aaa' element{<컴포넌트/>}/>
+      <Route path='/bbb' element{<컴포넌트/>}/>
+      <Route path='/ccc' element{<컴포넌트/>}/>
+      ...
+    </Routes>
+  </BrowserRouuter>
+
+  두번째는 
+  const browser_router = createBrowserRouter([
+    {path:'/',element:<컴포넌트/>},
+    {path:'/aaa',element:<컴포넌트/>},
+    {path:'/bbb',element:<컴포넌트/>},
+    {path:'/ccc',element:<컴포넌트/>},
+    ...
+  ])
+  함수 createBrowserRouter를 직접 만들고,
+  해당 라우터를 
+  <RouterProvider router = {browser_router}/>
