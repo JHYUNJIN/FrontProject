@@ -643,6 +643,6 @@ app.put('/api/comments', async (req,res)=>{
 });
 
 
-app.listen(port, ()=>{
+app.listen(port, ()=>{ // port == 3002
   console.log(`express 서버 실행됨! 포트:${port}`);
 });
