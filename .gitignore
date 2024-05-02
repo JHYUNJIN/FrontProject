@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/node,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,react
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/react,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=react,node
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
 
 ### Node ###
 # Logs
@@ -154,4 +159,8 @@ psd
 thumb
 sketch
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/node,react
+=======
+# End of https://www.toptal.com/developers/gitignore/api/react,node
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129

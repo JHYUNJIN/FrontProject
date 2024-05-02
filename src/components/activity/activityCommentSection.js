@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+<<<<<<< HEAD
 import { CommentInputWrap, CommentInput, CommentWriteBtn, CommentListWrap} from "../../styles/dashboard/activityComment.styles";
 import axios from "axios";
 import { UserContext } from "../../App";
@@ -37,11 +38,30 @@ const ActivityCommentSection = (props) => {
           setIsEnd(true);
         }
         setCommentList([...commentList, ...res.data]); // 기존에 있던 commentList랑 새롭게 받아온 res.data를 붙여준다. -> 3 -> 6 -> 9 ...
+=======
+import { CommentInputWrap, CommentInput, CommentWriteBtn, CommentListWrap, CommentItem, CommentHeader, CommentWriter, CommentDate, CommentBtn, Comment } from "../../styles/dashboard/activityComment.styles";
+import axios from "axios";
+import { UserContext } from "../../App";
+
+const ActivityCommentSection = (props) => {
+  const [commentList, setCommentList] = useState([]);
+  const{accessToken} = useContext(UserContext);
+
+  useEffect(() => {
+    let tmp = async () => {
+      if(accessToken === null) return;
+      try {
+        let res = await axios.get(`/api/comments?activityId=${props.activityId}`,{
+          headers:{Authorization:`Bearer ${accessToken}`}
+        });
+        setCommentList(res.data);
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
       } catch (err) {
         alert('댓글목록 오류');
       }
     }
     tmp();
+<<<<<<< HEAD
   }, [props.activityId, accessToken, inView]); // inView가 바뀌면 useEffect 함수 실행
 
   const onCommentClick = async ()=>{ // 댓글추가 함수
@@ -78,10 +98,14 @@ const ActivityCommentSection = (props) => {
       alert('댓글 삭제 실패, 잠시 후 다시 시도해주세요')
     }
   }
+=======
+  }, [props.activityId, accessToken]);
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
 
   return (
     <section>
       <CommentInputWrap>
+<<<<<<< HEAD
         <CommentInput onChange={(e)=>{setContent(e.target.value)}} value={content}/>
         <CommentWriteBtn onClick={onCommentClick}>댓글작성</CommentWriteBtn>
       </CommentInputWrap>
@@ -93,11 +117,31 @@ const ActivityCommentSection = (props) => {
           comment={comment} />) 
         }
         <div ref={ref} style={{backgroundColor:'red'}}></div>
+=======
+        <CommentInput />
+        <CommentWriteBtn>댓글작성</CommentWriteBtn>
+      </CommentInputWrap>
+      <CommentListWrap>
+        {
+          commentList.map((comment) => <CommentItem>
+            <CommentHeader>
+              <CommentWriter>작성자 id : {comment.writer_email}</CommentWriter>
+              <CommentDate>(작성일){comment.created_date}</CommentDate>
+              <CommentDate>(수정일){comment.updated_date}</CommentDate>
+              {comment.owner && <CommentBtn>삭제</CommentBtn>}
+            </CommentHeader>
+            <Comment>{comment.content}</Comment>
+          </CommentItem>)
+        }
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
       </CommentListWrap>
     </section>
   );
 }
 
+<<<<<<< HEAD
 // 무한스크롤 inView 태그 : <div ref={ref} style={{backgroundColor:'red'}}></div>
 
+=======
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
 export default ActivityCommentSection;

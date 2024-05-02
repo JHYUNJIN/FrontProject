@@ -487,7 +487,11 @@ app.delete('/api/like', async(req,res)=>{
   
   try{
     await pool.query(sql, [id,user.email]);
+<<<<<<< HEAD
     res.json('좋아요 취소 성공~♡');
+=======
+    res.json('좋아요 취소 성공~♡')    
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
   }catch(err){
     console.log(err);
     res.status(500).json('서버 오류 발생함');
@@ -557,6 +561,7 @@ app.get('/api/activities/:id', async (req, res)=>{
 
 });
 
+<<<<<<< HEAD
 // 게시글 상세페이지 댓글
 app.get('/api/comments', async (req, res)=>{
   const activityId = Number(req.query.activityId);
@@ -575,6 +580,14 @@ app.get('/api/comments', async (req, res)=>{
     const token = req.headers.authorization.replace('Bearer ','');
     let user = jwt.verify(token, process.env.JWT_SECRET);
     let [results] = await pool.query(sql, [activityId,limit,offset]);
+=======
+app.get('/api/comments', async (req, res)=>{
+  const activityId = Number(req.query.activityId);
+  try{
+    const token = req.headers.authorization.replace('Bearer ','');
+    let user = jwt.verify(token, process.env.JWT_SECRET);
+    let[results]= await pool.query('select * from tbl_comments where activity_id = ? order by created_date asc', [activityId]);
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
     
     results = results.map((el)=> ({...el, owner:el.writer_email === user.email}));
     
@@ -585,6 +598,7 @@ app.get('/api/comments', async (req, res)=>{
   }
 });
 
+<<<<<<< HEAD
 app.post('/api/comments', async(req,res)=>{
   const token = req.headers.authorization.replace('Bearer ','');
   const user = jwt.verify(token,process.env.JWT_SECRET);
@@ -644,5 +658,10 @@ app.put('/api/comments', async (req,res)=>{
 
 
 app.listen(port, ()=>{ // port == 3002
+=======
+
+
+app.listen(port, ()=>{
+>>>>>>> adb7f5f60bb778bd7fe86869396a657dffb4f129
   console.log(`express 서버 실행됨! 포트:${port}`);
 });
